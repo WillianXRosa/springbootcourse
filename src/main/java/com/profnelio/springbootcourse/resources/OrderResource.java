@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+
 import com.profnelio.springbootcourse.entities.OrderEntity;
 import com.profnelio.springbootcourse.services.OrderService;
 
@@ -26,9 +27,9 @@ public class OrderResource {
 	}
 	
 	@GetMapping(value = "/{id}")
-	public ResponseEntity <OrderEntity> findById(@PathVariable Long id){
-		OrderEntity objOderEntity = objOrderService.findById(id);
-		return ResponseEntity.ok().body(objOderEntity);
+	public ResponseEntity<OrderEntity> findById(@PathVariable Long id){
+		OrderEntity objOrderEntity = objOrderService.findById(id);
+		return ResponseEntity.ok().body(objOrderEntity);
 		
 	}
 }

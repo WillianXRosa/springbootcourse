@@ -17,11 +17,12 @@ public class OrderService {
 	
 	public List<OrderEntity> findAll(){
 		return objOrderRepository.findAll();
+		
 	}
 	
 	public OrderEntity findById(Long id) {
-		Optional<OrderEntity> objOrder = objOrderRepository.findById(id);
-		return objOrder.get();
-		
+		Optional<OrderEntity> obj = objOrderRepository.findById(id);
+		return obj.get();
 	}
+	
 }
