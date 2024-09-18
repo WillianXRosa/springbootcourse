@@ -80,7 +80,7 @@ public class/**Classe Pedido**/ OrderEntity implements Serializable {
 		super();
 		this.id = id;
 		this.moment = moment;
-		setOrderStatus(orderStatus);
+		setOrderStatus(orderStatus); 
 		this.client = client;
 	}
 

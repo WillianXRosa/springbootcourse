@@ -1,16 +1,20 @@
 package com.profnelio.springbootcourse.config;
 
 import java.time.Instant;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Locale.Category;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
 
+import com.profnelio.springbootcourse.entities.CategoryEntity;
 import com.profnelio.springbootcourse.entities.OrderEntity;
 import com.profnelio.springbootcourse.entities.UserEntity;
 import com.profnelio.springbootcourse.entities.enums.OrderStatus;
+import com.profnelio.springbootcourse.repositories.CategoryRepository;
 import com.profnelio.springbootcourse.repositories.OrderRepository;
 import com.profnelio.springbootcourse.repositories.UserRepository;
 
@@ -24,11 +28,19 @@ public class TestConfig implements CommandLineRunner{
 	@Autowired
 	private OrderRepository objOrderRepository;
 	
+	@Autowired
+	private CategoryRepository categoryRepository;
+	
 	
 
 
 	@Override
 	public void run(String... args) throws Exception {
+		
+		CategoryEntity cat1 = new CategoryEntity(null, "Electronics");
+		CategoryEntity cat2 = new CategoryEntity(null, "Books");
+		CategoryEntity cat3 = new CategoryEntity(null, "Computers");
+		
 		UserEntity u1 = new UserEntity(null, "Maria Brown", "maria@gmail.com", "988888888", "123456");
 		UserEntity u2 = new UserEntity(null, "Alex Green", "alex@gmail.com", "977777777", "123456");
 		
@@ -38,6 +50,7 @@ public class TestConfig implements CommandLineRunner{
 		
 		objUserRepository.saveAll(Arrays.asList(u1,u2));
 		objOrderRepository.saveAll(Arrays.asList(o1,o2,o3));
+		categoryRepository.saveAll(Arrays.asList(cat1,cat2,cat3));
 		
 	}
 	
