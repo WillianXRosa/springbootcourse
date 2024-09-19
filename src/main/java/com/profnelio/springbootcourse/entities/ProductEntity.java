@@ -13,9 +13,9 @@ import jakarta.persistence.Table;
 import jakarta.persistence.Transient;
 
 @Entity
-@Table(name = "tb_Category")
-public class CategoryEntity implements Serializable{
-	
+@Table(name = "tb_Product")
+public class ProductEntity implements Serializable{
+
 	private static final long serialVersionUID = 1L;
 	
 	
@@ -24,11 +24,14 @@ public class CategoryEntity implements Serializable{
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String name;
+	private String description;
+	private Double price;
+	private String imgUrl;
 	
 	@Transient
-	private Set<ProductEntity> products = new HashSet<>();
+	private Set<CategoryEntity> categories = new HashSet<>();
 	
-	/**Getters e Setters**/
+	/**Getters and Setters**/
 	public Long getId() {
 		return id;
 	}
@@ -45,21 +48,49 @@ public class CategoryEntity implements Serializable{
 		this.name = name;
 	}
 	
-	public Set<ProductEntity> getProducts() {
-		return products;
+	public String getDescription() {
+		return description;
 	}
 	
-	/**Construtores**/
-	public CategoryEntity() {
-		
+	public void setDescription(String description) {
+		this.description = description;
+	}
+	
+	public Double getPrice() {
+		return price;
+	}
+	
+	public void setPrice(Double price) {
+		this.price = price;
+	}
+	
+	public String getImgUrl() {
+		return imgUrl;
+	}
+	
+	public void setImgUrl(String imgUrl) {
+		this.imgUrl = imgUrl;
+	}
+	
+	
+	public Set<CategoryEntity> getCategories() {
+		return categories;
+	}
+	
+	/**Contructos**/
+	public ProductEntity() {
+		super();
 	}
 
-	public CategoryEntity(Long id, String name) {
+	public ProductEntity(Long id, String name, String description, Double price, String imgUrl) {
 		super();
 		this.id = id;
 		this.name = name;
+		this.description = description;
+		this.price = price;
+		this.imgUrl = imgUrl;
 	}
-
+	
 	/**HashCode and Equals**/
 	@Override
 	public int hashCode() {
@@ -74,9 +105,10 @@ public class CategoryEntity implements Serializable{
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		CategoryEntity other = (CategoryEntity) obj;
+		ProductEntity other = (ProductEntity) obj;
 		return Objects.equals(id, other.id);
 	}
+	
 	
 	
 	
