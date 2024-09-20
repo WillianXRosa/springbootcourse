@@ -10,7 +10,7 @@ import com.profnelio.springbootcourse.entities.ProductEntity;
 import com.profnelio.springbootcourse.repositories.ProductRepository;
 
 @Service
-public class ProdutctService {
+public class ProductService {
 
 	@Autowired
 	private ProductRepository objProductRepository;
