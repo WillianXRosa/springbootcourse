@@ -11,7 +11,7 @@ import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "TB_ORDER_ITEM")
-public class OrderItem implements Serializable {
+public class OrderItemEntity implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
 
@@ -68,12 +68,12 @@ public class OrderItem implements Serializable {
 	
 	
 	/**Constructors Super Class and Using Fields**/
-	public OrderItem() {
+	public OrderItemEntity() {
 		super();
 		
 	}
 
-	public OrderItem(OrderEntity order, ProductEntity product, Integer quantity, Double price) {
+	public OrderItemEntity(OrderEntity order, ProductEntity product, Integer quantity, Double price) {
 		super();
 		ID.setOrder(order);
 		ID.setProduct(product);
@@ -96,7 +96,7 @@ public class OrderItem implements Serializable {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		OrderItem other = (OrderItem) obj;
+		OrderItemEntity other = (OrderItemEntity) obj;
 		return Objects.equals(ID, other.ID);
 	}
 	
